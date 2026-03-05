@@ -178,6 +178,6 @@ def test_unregister_invalid_activity():
 
 def test_root_redirect():
     """Test that root path redirects to static index"""
-    response = client.get("/", allow_redirects=False)
+    response = client.get("/", follow_redirects=False)
     assert response.status_code == 307  # Temporary redirect
     assert "/static/index.html" in response.headers["location"]
